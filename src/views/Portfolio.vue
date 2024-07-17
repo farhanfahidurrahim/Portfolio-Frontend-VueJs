@@ -269,6 +269,8 @@
 
 <script setup>
 
+import {onMounted} from "vue";
+
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
@@ -304,6 +306,22 @@ const projects = [
   },
   // Add more projects as needed
 ];
+
+import axios from "../http.js";
+
+const fetchData = async () =>{
+  try{
+    const url = "api/index";
+    const response = await axios.get(url);
+    console.log(response);
+  } catch (error){
+
+  }
+}
+
+onMounted(()=>{
+  fetchData()
+})
 </script>
 
 <style scoped>
